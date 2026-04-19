@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contos Perdidos — Continente de Zarton</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            zarton: {
+              dark: '#0a0a1a',
+              deeper: '#060612',
+              navy: '#0d1033',
+              purple: '#1a1040',
+              gold: '#c9a84c',
+              'gold-light': '#e8d48b',
+              'gold-dark': '#8a6d1b',
+              red: '#8b1a1a',
+              'red-dark': '#5c0e0e',
+              green: '#2d6a4f',
+              ice: '#4a8bb5',
+              blue: '#1e3a5f',
+            }
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            'cinzel-dec': ['Cinzel Decorative', 'serif'],
+            inter: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Particles -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: transparent;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="#hero" class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-zarton-gold to-zarton-gold-dark flex items-center justify-center">
+            <i data-lucide="shield" class="w-5 h-5 text-zarton-deeper"></i>
+          </div>
+          <span class="font-cinzel text-zarton-gold font-bold text-sm md:text-base tracking-wider">Contos Perdidos</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#intro" class="nav-link font-cinzel text-xs tracking-widest uppercase">Introdução</a>
+          <a href="#mapa" class="nav-link font-cinzel text-xs tracking-widest uppercase">Mapa</a>
+          <a href="#reinos" class="nav-link font-cinzel text-xs tracking-widest uppercase">Reinos</a>
+          <a href="#mundo" class="nav-link font-cinzel text-xs tracking-widest uppercase">O Mundo</a>
+          <a href="#campanha" class="nav-link font-cinzel text-xs tracking-widest uppercase">Campanha</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="menu-btn" class="md:hidden text-zarton-gold p-2" onclick="toggleMenu()">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-72 h-full z-50 bg-zarton-deeper/95 backdrop-blur-xl border-l border-zarton-gold/20">
+    <div class="flex justify-end p-5">
+      <button onclick="toggleMenu()" class="text-zarton-gold p-2">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <div class="flex flex-col gap-6 px-8">
+      <a href="#intro" onclick="toggleMenu()" class="nav-link font-cinzel text-sm tracking-widest uppercase">Introdução</a>
+      <a href="#mapa" onclick="toggleMenu()" class="nav-link font-cinzel text-sm tracking-widest uppercase">Mapa</a>
+      <a href="#reinos" onclick="toggleMenu()" class="nav-link font-cinzel text-sm tracking-widest uppercase">Reinos</a>
+      <a href="#mundo" onclick="toggleMenu()" class="nav-link font-cinzel text-sm tracking-widest uppercase">O Mundo</a>
+      <a href="#campanha" onclick="toggleMenu()" class="nav-link font-cinzel text-sm tracking-widest uppercase">Campanha</a>
+    </div>
+  </div>
+  <div id="menu-overlay" class="fixed inset-0 bg-black/60 z-40 hidden" onclick="toggleMenu()"></div>
+
+  <!-- ====== HERO SECTION ====== -->
+  <section id="hero" class="hero-bg relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="fog-overlay"></div>
+
+    <!-- Decorative background runes -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <svg class="rune-bg w-[600px] h-[600px] md:w-[900px] md:h-[900px] text-zarton-gold/[0.03]" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="0.5"/>
+        <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="0.3"/>
+        <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" stroke-width="0.3"/>
+        <polygon points="100,10 190,100 100,190 10,100" fill="none" stroke="currentColor" stroke-width="0.4"/>
+        <polygon points="100,30 170,100 100,170 30,100" fill="none" stroke="currentColor" stroke-width="0.3"/>
+        <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" stroke-width="0.2"/>
+        <line x1="10" y1="100" x2="190" y2="100" stroke="currentColor" stroke-width="0.2"/>
+      </svg>
+    </div>
+
+    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+      <!-- Small top label -->
+      <div class="reveal mb-6">
+        <span class="font-cinzel text-zarton-gold/60 text-xs md:text-sm tracking-[0.3em] uppercase">⚔ Continente de Zarton ⚔</span>
+      </div>
+
+      <!-- Main title -->
+      <h1 class="reveal reveal-delay-1 font-cinzel-dec text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6">
+        <span class="text-shimmer">Guia do Jogador</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="reveal reveal-delay-2 font-cinzel text-zarton-gold-light/80 text-lg sm:text-xl md:text-2xl tracking-wider mb-10">
+        Um mundo de ambição, magia e destino
+      </p>
+
+      <!-- CTA -->
+      <div class="reveal reveal-delay-3">
+        <a href="#intro" class="inline-flex items-center gap-3 px-8 py-4 border border-zarton-gold/50 rounded bg-zarton-gold/10 font-cinzel text-zarton-gold text-sm tracking-widest uppercase hover:bg-zarton-gold/20 hover:border-zarton-gold transition-all duration-300 gold-glow-hover">
+          <i data-lucide="compass" class="w-5 h-5"></i>
+          Explorar Zarton
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 floating">
+      <div class="flex flex-col items-center gap-2 text-zarton-gold/40">
+        <span class="font-cinzel text-[10px] tracking-[0.3em] uppercase">Scroll</span>
+        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== INTRODUCTION ====== -->
+  <section id="intro" class="relative py-24 md:py-32">
+    <div class="fog-overlay"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="text-center">
+        <div class="ornament-divider reveal">
+          <div class="ornament-line"></div>
+          <div class="ornament-diamond"></div>
+          <div class="ornament-line"></div>
+        </div>
+
+        <h2 class="reveal section-title text-2xl md:text-3xl mb-10">Introdução</h2>
+
+        <div class="reveal reveal-delay-1 max-w-3xl mx-auto space-y-6">
+          <p class="text-lg md:text-xl leading-relaxed text-gray-300/90 font-light">
+            Zarton é um continente vasto, onde grandes reinos disputam poder, ideologias colidem e forças desconhecidas se movem nas sombras.
+          </p>
+          <p class="text-lg md:text-xl leading-relaxed text-zarton-gold-light/70 font-cinzel tracking-wide">
+            Aqui, cada escolha pode mudar o destino do mundo.
+          </p>
+        </div>
+
+        <div class="ornament-divider reveal">
+          <div class="ornament-line"></div>
+          <div class="ornament-diamond"></div>
+          <div class="ornament-line"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== MAP SECTION ====== -->
+  <section id="mapa" class="relative py-20 md:py-32">
+    <div class="fog-overlay"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="text-center mb-12">
+        <div class="flex items-center justify-center gap-3 mb-4 reveal">
+          <i data-lucide="map" class="w-6 h-6 text-zarton-gold/70"></i>
+          <span class="font-cinzel text-zarton-gold/60 text-xs tracking-[0.3em] uppercase">Cartografia</span>
+          <i data-lucide="map" class="w-6 h-6 text-zarton-gold/70"></i>
+        </div>
+        <h2 class="reveal section-title text-2xl md:text-4xl mb-4">Mapa de Zarton</h2>
+      </div>
+
+      <!-- Map frame -->
+      <div class="reveal reveal-delay-1 map-frame gold-glow p-2 md:p-3 max-w-5xl mx-auto">
+        <div class="corner-tr"></div>
+        <div class="corner-bl"></div>
+        <div class="map-image-wrapper relative">
+          <img
+            src="imagens/MAPA ZARTON.png"
+            alt="Mapa do Continente de Zarton"
+            class="w-full h-auto object-cover"
+            style="min-height: 300px; max-height: 600px; filter: saturate(0.4) brightness(0.6) contrast(1.2);"
+          >
+          <!-- Map overlay gradient -->
+          <div class="absolute inset-0 bg-gradient-to-t from-zarton-deeper/80 via-transparent to-zarton-deeper/40 pointer-events-none"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-zarton-deeper/30 via-transparent to-zarton-deeper/30 pointer-events-none"></div>
+
+          <!-- Center label on map -->
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div class="text-center">
+              <p class="font-cinzel-dec text-zarton-gold/80 text-2xl md:text-4xl tracking-[0.2em]">ZARTON</p>
+              <p class="font-cinzel text-zarton-gold/40 text-xs md:text-sm tracking-[0.3em] mt-2">CONTINENTE</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="reveal reveal-delay-2 text-center mt-8 text-gray-400/80 max-w-2xl mx-auto font-light leading-relaxed">
+        Explore o continente de Zarton e descubra os reinos que moldam este mundo.
+      </p>
+    </div>
+  </section>
+
+  <!-- ====== KINGDOMS SECTION ====== -->
+  <section id="reinos" class="relative py-20 md:py-32">
+    <div class="fog-overlay"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="text-center mb-16">
+        <div class="flex items-center justify-center gap-3 mb-4 reveal">
+          <i data-lucide="crown" class="w-6 h-6 text-zarton-gold/70"></i>
+          <span class="font-cinzel text-zarton-gold/60 text-xs tracking-[0.3em] uppercase">Fações & Territórios</span>
+          <i data-lucide="crown" class="w-6 h-6 text-zarton-gold/70"></i>
+        </div>
+        <h2 class="reveal section-title text-2xl md:text-4xl mb-4">Reinos do Continente</h2>
+        <p class="reveal reveal-delay-1 text-gray-400/70 max-w-xl mx-auto mt-6 font-light">
+          Treze reinos, cada um com sua cultura, poder e segredos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6" id="kingdoms-grid">
+        <!-- Cards will be injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== THE WORLD SECTION ====== -->
+  <section id="mundo" class="relative py-20 md:py-32">
+    <div class="fog-overlay"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="text-center">
+        <div class="ornament-divider reveal">
+          <div class="ornament-line"></div>
+          <div class="ornament-diamond" style="background: #8b1a1a; box-shadow: 0 0 12px #8b1a1a88;"></div>
+          <div class="ornament-line"></div>
+        </div>
+
+        <div class="flex items-center justify-center gap-3 mb-4 reveal">
+          <i data-lucide="alert-triangle" class="w-5 h-5 text-zarton-red/70"></i>
+          <span class="font-cinzel text-zarton-red/60 text-xs tracking-[0.3em] uppercase">Ameaça</span>
+          <i data-lucide="alert-triangle" class="w-5 h-5 text-zarton-red/70"></i>
+        </div>
+
+        <h2 class="reveal section-title text-2xl md:text-3xl mb-10" style="color: #c96a4c;">O Mundo</h2>
+
+        <div class="reveal reveal-delay-1 max-w-3xl mx-auto bg-gradient-to-br from-zarton-red/10 to-zarton-purple/10 border border-zarton-red/20 rounded-lg p-8 md:p-12 gold-glow">
+          <p class="text-lg md:text-xl leading-relaxed text-gray-300/90 font-light mb-4">
+            O continente de Zarton está em constante movimento.
+          </p>
+          <p class="text-base md:text-lg leading-relaxed text-gray-400/80 font-light mb-4">
+            Mudanças sutis começam a surgir, e acontecimentos incomuns passam a chamar atenção.
+          </p>
+          <p class="text-lg md:text-xl leading-relaxed font-cinzel tracking-wide" style="color: #c96a4c;">
+            Algo está errado… mas ninguém sabe o quê.
+          </p>
+        </div>
+
+        <div class="ornament-divider reveal">
+          <div class="ornament-line"></div>
+          <div class="ornament-diamond" style="background: #8b1a1a; box-shadow: 0 0 12px #8b1a1a88;"></div>
+          <div class="ornament-line"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CAMPAIGN START SECTION ====== -->
+  <section id="campanha" class="relative py-20 md:py-32">
+    <div class="fog-overlay"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="text-center">
+        <div class="flex items-center justify-center gap-3 mb-4 reveal">
+          <i data-lucide="scroll" class="w-5 h-5 text-zarton-gold/70"></i>
+          <span class="font-cinzel text-zarton-gold/60 text-xs tracking-[0.3em] uppercase">Prólogo</span>
+          <i data-lucide="scroll" class="w-5 h-5 text-zarton-gold/70"></i>
+        </div>
+
+        <h2 class="reveal section-title text-2xl md:text-3xl mb-10">Início da Jornada</h2>
+
+        <div class="reveal reveal-delay-1 max-w-3xl mx-auto bg-gradient-to-br from-zarton-gold/5 to-zarton-navy/50 border border-zarton-gold/20 rounded-lg p-8 md:p-12 gold-glow">
+          <p class="text-lg md:text-xl leading-relaxed text-gray-300/90 font-light mb-6">
+            Zarton é um mundo vasto, onde caminhos se cruzam e destinos são forjados a cada instante.
+          </p>
+          <p class="text-lg md:text-xl leading-relaxed text-zarton-gold-light/80 font-cinzel tracking-wide">
+            Riquezas, segredos, perigos e oportunidades aguardam aqueles dispostos a ir além do comum.
+          </p>
+           <p class="text-lg md:text-xl leading-relaxed text-zarton-gold-light/80 font-cinzel tracking-wide">
+            Alguns buscam poder. Outros, propósito.
+          </p>
+          <div class="my-8">
+            <div class="ornament-line mx-auto" style="width: 80px;"></div>
+          </div>
+          <p class="text-xl md:text-2xl leading-relaxed font-cinzel tracking-wider text-shimmer">
+            E há aqueles… que estão prestes a encontrar algo muito maior do que imaginavam.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="relative py-20 border-t border-zarton-gold/10">
+    <div class="fog-overlay"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+      <div class="ornament-divider reveal">
+        <div class="ornament-line"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-line"></div>
+      </div>
+
+      <div class="reveal reveal-delay-1 mb-8">
+        <i data-lucide="sword" class="w-8 h-8 text-zarton-gold/50 mx-auto mb-6"></i>
+        <p class="font-cinzel-dec text-2xl md:text-4xl text-shimmer tracking-wider">
+          Seu destino começa agora.
+        </p>
+      </div>
+
+      <div class="reveal reveal-delay-2 flex items-center justify-center gap-6 text-zarton-gold/30 text-xs font-cinzel tracking-widest">
+        <span>Site criado por <a href="https://github.com/Firezard42" target="_blank" class="text-zarton-gold/50 hover:text-zarton-gold/70">Ivaldo Neto</a></span>
+        <span>© 2026</span>
+        <span>•</span>
+
+      </div>
+
+      <div class="ornament-divider reveal">
+        <div class="ornament-line"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-line"></div>
+      </div>
+    </div>
+  </footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
