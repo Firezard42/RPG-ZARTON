@@ -40,10 +40,10 @@
 </head>
 <body>
 
-  <!-- Particles -->
+  
   <canvas id="particles-canvas"></canvas>
 
-  <!-- Navigation -->
+  
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: transparent;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 md:h-20">
@@ -54,7 +54,7 @@
           <span class="font-cinzel text-zarton-gold font-bold text-sm md:text-base tracking-wider">Contos Perdidos</span>
         </a>
 
-        <!-- Desktop Nav -->
+        
         <div class="hidden md:flex items-center gap-8">
           <a href="#intro" class="nav-link font-cinzel text-xs tracking-widest uppercase">Introdução</a>
           <a href="#mapa" class="nav-link font-cinzel text-xs tracking-widest uppercase">Mapa</a>
@@ -63,7 +63,7 @@
           <a href="#campanha" class="nav-link font-cinzel text-xs tracking-widest uppercase">Campanha</a>
         </div>
 
-        <!-- Mobile menu button -->
+        
         <button id="menu-btn" class="md:hidden text-zarton-gold p-2" onclick="toggleMenu()">
           <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
@@ -71,7 +71,7 @@
     </div>
   </nav>
 
-  <!-- Mobile Menu -->
+  
   <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-72 h-full z-50 bg-zarton-deeper/95 backdrop-blur-xl border-l border-zarton-gold/20">
     <div class="flex justify-end p-5">
       <button onclick="toggleMenu()" class="text-zarton-gold p-2">
@@ -88,11 +88,11 @@
   </div>
   <div id="menu-overlay" class="fixed inset-0 bg-black/60 z-40 hidden" onclick="toggleMenu()"></div>
 
-  <!-- ====== HERO SECTION ====== -->
+  
   <section id="hero" class="hero-bg relative min-h-screen flex items-center justify-center overflow-hidden">
     <div class="fog-overlay"></div>
 
-    <!-- Decorative background runes -->
+    
     <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
       <svg class="rune-bg w-[600px] h-[600px] md:w-[900px] md:h-[900px] text-zarton-gold/[0.03]" viewBox="0 0 200 200">
         <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="0.5"/>
@@ -106,22 +106,22 @@
     </div>
 
     <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
-      <!-- Small top label -->
+      
       <div class="reveal mb-6">
         <span class="font-cinzel text-zarton-gold/60 text-xs md:text-sm tracking-[0.3em] uppercase">⚔ Continente de Zarton ⚔</span>
       </div>
 
-      <!-- Main title -->
+      
       <h1 class="reveal reveal-delay-1 font-cinzel-dec text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6">
         <span class="text-shimmer">Guia do Jogador</span>
       </h1>
 
-      <!-- Subtitle -->
+      
       <p class="reveal reveal-delay-2 font-cinzel text-zarton-gold-light/80 text-lg sm:text-xl md:text-2xl tracking-wider mb-10">
         Um mundo de ambição, magia e destino
       </p>
 
-      <!-- CTA -->
+      
       <div class="reveal reveal-delay-3">
         <a href="#intro" class="inline-flex items-center gap-3 px-8 py-4 border border-zarton-gold/50 rounded bg-zarton-gold/10 font-cinzel text-zarton-gold text-sm tracking-widest uppercase hover:bg-zarton-gold/20 hover:border-zarton-gold transition-all duration-300 gold-glow-hover">
           <i data-lucide="compass" class="w-5 h-5"></i>
@@ -130,7 +130,7 @@
       </div>
     </div>
 
-    <!-- Scroll indicator -->
+    
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 floating">
       <div class="flex flex-col items-center gap-2 text-zarton-gold/40">
         <span class="font-cinzel text-[10px] tracking-[0.3em] uppercase">Scroll</span>
@@ -139,7 +139,7 @@
     </div>
   </section>
 
-  <!-- ====== INTRODUCTION ====== -->
+  
   <section id="intro" class="relative py-24 md:py-32">
     <div class="fog-overlay"></div>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
@@ -170,7 +170,7 @@
     </div>
   </section>
 
-  <!-- ====== MAP SECTION ====== -->
+  
   <section id="mapa" class="relative py-20 md:py-32">
     <div class="fog-overlay"></div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
@@ -183,7 +183,7 @@
         <h2 class="reveal section-title text-2xl md:text-4xl mb-4">Mapa de Zarton</h2>
       </div>
 
-      <!-- Map frame -->
+      
       <div class="reveal reveal-delay-1 map-frame gold-glow p-2 md:p-3 max-w-5xl mx-auto">
         <div class="corner-tr"></div>
         <div class="corner-bl"></div>
@@ -194,11 +194,11 @@
             class="w-full h-auto object-cover"
             style="min-height: 300px; max-height: 600px; filter: saturate(0.4) brightness(0.6) contrast(1.2);"
           >
-          <!-- Map overlay gradient -->
+         
           <div class="absolute inset-0 bg-gradient-to-t from-zarton-deeper/80 via-transparent to-zarton-deeper/40 pointer-events-none"></div>
           <div class="absolute inset-0 bg-gradient-to-r from-zarton-deeper/30 via-transparent to-zarton-deeper/30 pointer-events-none"></div>
 
-          <!-- Center label on map -->
+          
           <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div class="text-center">
               <p class="font-cinzel-dec text-zarton-gold/80 text-2xl md:text-4xl tracking-[0.2em]">ZARTON</p>
@@ -214,7 +214,7 @@
     </div>
   </section>
 
-  <!-- ====== KINGDOMS SECTION ====== -->
+  
   <section id="reinos" class="relative py-20 md:py-32">
     <div class="fog-overlay"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
@@ -226,7 +226,7 @@
         </div>
         <h2 class="reveal section-title text-2xl md:text-4xl mb-4">Reinos do Continente</h2>
         <p class="reveal reveal-delay-1 text-gray-400/70 max-w-xl mx-auto mt-6 font-light">
-          Treze reinos, cada um com sua cultura, poder e segredos.
+          Catorze reinos, cada um com sua cultura, poder e segredos.
         </p>
       </div>
 
@@ -236,7 +236,7 @@
     </div>
   </section>
 
-  <!-- ====== THE WORLD SECTION ====== -->
+  
   <section id="mundo" class="relative py-20 md:py-32">
     <div class="fog-overlay"></div>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
@@ -276,7 +276,7 @@
     </div>
   </section>
 
-  <!-- ====== CAMPAIGN START SECTION ====== -->
+  
   <section id="campanha" class="relative py-20 md:py-32">
     <div class="fog-overlay"></div>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
@@ -310,7 +310,7 @@
     </div>
   </section>
 
-  <!-- ====== FOOTER ====== -->
+  
   <footer class="relative py-20 border-t border-zarton-gold/10">
     <div class="fog-overlay"></div>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">

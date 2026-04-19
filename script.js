@@ -1,6 +1,6 @@
-// script.js - Arquivo JavaScript do site Contos Perdidos
 
-// ====== KINGDOMS DATA ======
+
+
 const kingdoms = [
   {
     name: 'Reino Central',
@@ -159,7 +159,7 @@ const kingdoms = [
   }
 ];
 
-// ====== RENDER KINGDOMS ======
+
 const grid = document.getElementById('kingdoms-grid');
 kingdoms.forEach((kingdom, index) => {
   const card = document.createElement('a');
@@ -186,10 +186,10 @@ kingdoms.forEach((kingdom, index) => {
   grid.appendChild(card);
 });
 
-// ====== LUCIDE ICONS ======
+
 lucide.createIcons();
 
-// ====== PARTICLES ======
+
 const canvas = document.getElementById('particles-canvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
@@ -242,7 +242,7 @@ class Particle {
   }
 }
 
-// Create particles
+
 const particleCount = Math.min(80, Math.floor(window.innerWidth / 20));
 for (let i = 0; i < particleCount; i++) {
   particles.push(new Particle());
@@ -258,7 +258,7 @@ function animateParticles() {
 }
 animateParticles();
 
-// ====== SCROLL REVEAL ======
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -272,7 +272,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// ====== NAVBAR BACKGROUND ======
+
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 80) {
@@ -286,7 +286,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ====== MOBILE MENU ======
+
 function toggleMenu() {
   const menu = document.getElementById('mobile-menu');
   const overlay = document.getElementById('menu-overlay');
